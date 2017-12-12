@@ -4,7 +4,7 @@
     class post extends model{
 
         public function getPosts(){
-            $sql = 'SELECT id, titre, texte, DATE_FORMAT(date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_fr FROM Posts ORDER BY date';
+            $sql = 'SELECT id, titre, texte, DATE_FORMAT(date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_fr FROM Posts ORDER BY date DESC';
             $posts = $this->executeSQL($sql);
             return $posts;
         }

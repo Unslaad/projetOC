@@ -29,11 +29,12 @@
                                 throw new Exception("ID de post non valide");
                     }
 
-                    else if ($_GET['action'] == 'commenter')
+                    else if ($_GET['action'] == 'comment'){
                         $pseudo = $this->getParam($_POST, 'pseudo');
                         $comment = $this->getParam($_POST, 'comment');
                         $postId = $this->getParam($_POST, 'postId');
-                        $this->controllerPost->comment($pseudo,$comment,$postID);
+                        $this->controllerPost->comment($pseudo,$comment,$postId);
+                    }
                 }
                 else
                     $this->controllerIndex->index();
@@ -46,7 +47,7 @@
 
     private function getParam($table, $name){
         if (isset($table[$name])){
-            return $tableau[$nom];
+            return $table[$name];
         }
         else {
             throw new Exception("Paramètre '$name' absent");

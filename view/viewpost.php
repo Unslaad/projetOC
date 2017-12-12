@@ -18,10 +18,10 @@
 <?php endforeach; ?>
 
 <form method="post" action="index.php?action=comment">
-    <input id="auteur" name="auteur" type="text" placeholder="Votre pseudo"
+    <input id="pseudo" name="pseudo" type="text" placeholder="Votre pseudo"
            required /><br />
-    <textarea id="txtCommentaire" name="contenu" rows="4"
+    <textarea id="comment" name="comment" rows="4"
               placeholder="Votre commentaire" required></textarea><br />
-    <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
+    <input type="hidden" name="postId" value="<?= $post['id'] ?>" />
     <input type="submit" value="Commenter" />
 </form>
