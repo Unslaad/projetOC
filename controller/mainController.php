@@ -51,8 +51,7 @@
                         $mdp = $this->getParam($_POST, 'mdp');
                         $hashMdp = hash('sha256' , $mdp);
                         $bool = $this->controllerAuth->checkMdp($user, $hashMdp);
-                        echo $bool;
-                        if ($bool == 1){
+                        if ($bool){
                             $this->controllerBack->back();
                         }
                         else

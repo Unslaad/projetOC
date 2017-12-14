@@ -12,11 +12,14 @@
 
         public function checkMdp($user,$hashMdp){
             $mdpDB = $this->auth->getMdp($user);
-            if ($mdpDB == $hashMdp){
-                return 1;
+
+            foreach ($mdpDB as $mdp){
+                 $mdpdb = $mdp['mdp'];
             }
-            else{
-                return 0;
-            }
+
+            if ($mdpdb == $hashMdp)
+                return true;
+            else
+                return false;
         }
     }
