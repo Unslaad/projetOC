@@ -1,4 +1,6 @@
-<?php $this->title = "Post"; ?>
+<?php $this->title = "Back"; ?>
+
+<h1>Interface d'administration</h1>
 
 <?php foreach ($post as $post) : ?>
     <article>
@@ -17,11 +19,4 @@
     <br />
 <?php endforeach; ?>
 
-<form method="post" action="index.php?action=comment">
-    <input id="pseudo" name="pseudo" type="text" placeholder="Votre pseudo"
-           required /><br />
-    <textarea id="comment" name="comment" rows="4"
-              placeholder="Votre commentaire" required></textarea><br />
-    <input type="hidden" name="postId" value="<?= $post['id'] ?>" />
-    <input type="submit" value="Commenter" />
-</form>
+<a href="<?= 'index.php'?>">Retour à l'index</a>

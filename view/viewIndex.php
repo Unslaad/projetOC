@@ -1,4 +1,4 @@
-<?php $this->title = "Blog"; ?>
+<?php $this->title = "Index"; ?>
 
 <?php foreach ($post as $post) : ?>
     <article>
@@ -10,3 +10,5 @@
     </article>
     <br />
 <?php endforeach; ?>
+
+<a href="<?= 'index.php?action=admin'?>">Se connecter</a>
