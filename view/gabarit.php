@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/style.css" />
+        <link rel="stylesheet" href="contenu/style.css" />
         <title><?= $titre ?></title>
     </head>
     <body>
@@ -17,6 +17,6 @@
             <footer id="piedBlog">
                 Blog réalisé pour Jean Forteroche.
             </footer>
-        </div> 
+        </div>
     </body>
 </html>
