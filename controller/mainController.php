@@ -58,6 +58,12 @@
                             throw new Exception ("Erreur dans l'identifiant ou le mot de passe");
 
                     }
+                    elseif ($_GET['action'] == 'unflag') {
+                        $idComment = $_GET['id'];
+                        $this->controllerBack->unFlag($idComment);
+                        echo 'Modification effectuée';
+
+                    }
 
                 }
                 else

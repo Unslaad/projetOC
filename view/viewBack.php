@@ -16,6 +16,10 @@
 <?php foreach ($comments as $comment) : ?>
     <p><strong><?= $comment['pseudo'] . ' à ' . $comment['date_fr'] ?></strong></p>
     <p><?= $comment['commentaire']?></p>
+
+    <form action=<?='index.php?action=unflag&id=' . $comment['id']?> method="post">
+        <input type="submit" placeholder="Unflag" value="Unflag"/>
+    </form>
     <br />
 <?php endforeach; ?>
 

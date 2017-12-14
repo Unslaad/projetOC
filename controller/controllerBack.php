@@ -21,4 +21,8 @@
             $view->generate(array('post' => $post, 'comments' => $comments));
 
         }
+
+        public function unFlag($id){
+            $this->back->unflag($id);
+        }
     }
