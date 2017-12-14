@@ -22,4 +22,9 @@
             else
                 return false;
         }
+
+        public function vueBack(){
+            $view= new view('Auth');
+            $view->generate(array());
+        }
     }

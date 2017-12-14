@@ -19,7 +19,7 @@
         <p><?= $comment['commentaire']?></p>
 
         <form action=<?='index.php?action=unflag&id=' . $comment['id']?> method="post">
-            <input type="submit" value="Unflag"/>
+            <input type="submit" value="Désignaler"/>
         </form>
         <form action=<?='index.php?action=supp&id=' . $comment['id']?> method="post">
             <input type="submit" value="Supprimer"/>

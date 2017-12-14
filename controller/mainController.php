@@ -42,7 +42,8 @@
                         $this->controllerPost->comment($pseudo,$comment,$postId);
                     }
                     elseif ($_GET['action'] == 'admin') {
-                        require 'view/viewAuth.php';
+                        //require 'view/viewAuth.php';
+                        $this->controllerAuth->vueBack();
                     }
 
                     elseif ($_GET['action'] == 'auth') {
