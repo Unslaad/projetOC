@@ -14,5 +14,9 @@
             $sql = 'UPDATE commentPosts SET flag = 0 WHERE id = ?';
             $req = $this->executeSQL($sql, array($id));
         }
+        public function supprimer($id){
+            $sql = 'DELETE FROM commentPosts WHERE id = ?';
+            $req= $this->executeSQL($sql, array($id));
+        }
 
     }

@@ -64,6 +64,18 @@
                         echo 'Modification effectuée';
 
                     }
+                    elseif ($_GET['action'] == 'flag') {
+                        $idComment = $_GET['id'];
+                        $this->controllerPost->flagComments($idComment);
+                        echo 'Modification effectuée';
+
+                    }
+                    elseif ($_GET['action'] == 'supp') {
+                        $idComment = $_GET['id'];
+                        $this->controllerBack->supp($idComment);
+                        echo 'Modification effectuée';
+
+                    }
 
                 }
                 else

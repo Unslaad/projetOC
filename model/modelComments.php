@@ -14,4 +14,9 @@
             $date = date(DATE_W3C);
             $this->executeSQL($sql, array($postId,$pseudo, $date, $comment));
         }
+
+        public function flag($idComment){
+            $sql = 'UPDATE commentPosts SET flag = 1 WHERE id = ?';
+            $req = $this->executeSQL($sql, array($idComment));
+        }
     }

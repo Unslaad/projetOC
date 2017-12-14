@@ -14,6 +14,9 @@
 <?php foreach ($comments as $comment) : ?>
     <p><strong><?= $comment['pseudo'] . ' à ' . $comment['date_fr'] ?></strong></p>
     <p><?= $comment['commentaire']?></p>
+    <form action=<?='index.php?action=flag&id=' . $comment['id']?> method="post">
+        <input type="submit" value="Signaler le commentaire"/>
+    </form>
     <br />
 <?php endforeach; ?>
 

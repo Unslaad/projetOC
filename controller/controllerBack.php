@@ -25,4 +25,8 @@
         public function unFlag($id){
             $this->back->unflag($id);
         }
+
+        public function supp($id){
+            $this->back->supprimer($id);
+        }
     }

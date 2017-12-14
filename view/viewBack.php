@@ -18,7 +18,10 @@
     <p><?= $comment['commentaire']?></p>
 
     <form action=<?='index.php?action=unflag&id=' . $comment['id']?> method="post">
-        <input type="submit" placeholder="Unflag" value="Unflag"/>
+        <input type="submit" value="Unflag"/>
+    </form>
+    <form action=<?='index.php?action=supp&id=' . $comment['id']?> method="post">
+        <input type="submit" value="Supprimer"/>
     </form>
     <br />
 <?php endforeach; ?>

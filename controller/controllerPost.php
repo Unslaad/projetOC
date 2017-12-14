@@ -26,4 +26,7 @@
             $this->comments->addComment($pseudo, $comment, $postId);
             $this->post($postId);
         }
+        public function flagComments($id){
+            $this->comments->flag($id);
+        }
     }
