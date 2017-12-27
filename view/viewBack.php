@@ -2,6 +2,10 @@
 
 <h1>Interface d'administration</h1>
 
+<form action="index.php?action=ajout" method="post">
+    <button type="submit" name="button">Nouveau post</button>
+</form>
+
 <?php foreach ($post as $post) : ?>
     <article id="articles">
         <a href="<?= "index.php?action=billet&id=" . $post['id'] ?>">

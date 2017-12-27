@@ -5,6 +5,7 @@
     require_once 'controller/controllerBack.php';
     require_once 'controller/controllerAuth.php';
     require_once 'view/view.php';
+    require_once 'controller/controllerCrud.php';
 
     class main {
 
@@ -12,12 +13,14 @@
         private $controllerPost;
         private $controllerBack;
         private $controllerAuth;
+        private $controllerCrud;
 
         public function __construct(){
             $this->controllerIndex = new controllerIndex();
             $this->controllerPost = new controllerPost();
             $this->controllerBack = new controllerBack();
             $this->controllerAuth = new controllerAuth();
+            $this->controllerCrud = new controllerCrud();
         }
 
         public function Routage(){
@@ -44,6 +47,16 @@
                     elseif ($_GET['action'] == 'admin') {
                         //require 'view/viewAuth.php';
                         $this->controllerAuth->vueBack();
+                    }
+
+                    elseif($_GET['action'] == 'ajout'){
+                        $this->controllerCrud->vueAjout();
+                    }
+
+                    elseif ($_GET['action'] == 'new') {
+                        $titre = $this->getParam($_POST, 'titre');
+                        $texte = $this->getParam($_POST, 'texte');
+                        $this->controllerCrud->ajout($titre, $texte);
                     }
 
                     elseif ($_GET['action'] == 'auth') {
