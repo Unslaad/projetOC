@@ -11,4 +11,11 @@
     <br />
 <?php endforeach; ?>
 
-<a href="<?= 'index.php?action=admin'?>">Se connecter</a>
+<?php
+    if (isset($_SESSION['nom']) && $_SESSION['nom'] == 'admin'){
+        echo '<a href="' . 'index.php?action=admin' . '">Accès Interface de gestion</a>';
+    }
+    else{
+        echo '<a href="' . 'index.php?action=admin' . '">Se connecter</a>';
+    }
+?>
