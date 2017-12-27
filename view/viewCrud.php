@@ -1,4 +1,4 @@
-<?php $this->title = "Nouveau Post"; ?>
+<?php $this->title = "Nouveau Billet"; ?>
 <head>
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>tinymce.init({ selector:'textarea' });</script>
