@@ -2,6 +2,8 @@
 
 <h1>Interface d'administration</h1>
 
+<h2>Billets</h2>
+
 <form action="index.php?action=ajout" method="post">
     <button type="submit" name="button">Nouveau post</button>
 </form>
@@ -12,7 +14,7 @@
             <h1><?= $post['titre']?></h1>
         </a>
         <p><?= $post['date_fr']?></p>
-        <p><?= $post['texte']?></p>
+        <p><?= substr($post['texte'], 0, 50) ?></p>
         <form action=<?='index.php?action=modif&id=' . $post['id']?> method="post">
             <input type="submit" value="Modifier"/>
         </form>
@@ -22,9 +24,9 @@
     </article>
     <br />
 <?php endforeach; ?>
-
+<h2>Commentaires signalés</h2>
 <?php foreach ($comments as $comment) : ?>
-    <div id="comments">
+    <article>
         <p><strong><?= $comment['pseudo'] . ' à ' . $comment['date_fr'] ?></strong></p>
         <p><?= $comment['commentaire']?></p>
 
@@ -34,8 +36,7 @@
         <form action=<?='index.php?action=supp&id=' . $comment['id']?> method="post">
             <input type="submit" value="Supprimer"/>
         </form>
-    </div>
-    <br />
+    </article>
 <?php endforeach; ?>
 
 <a href="<?= 'index.php'?>">Retour à l'index</a>

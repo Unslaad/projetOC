@@ -8,7 +8,7 @@
     <h1>Nouveau post</h1>
 
 <?php foreach ($post as $post) : ?>
-
+<article>
     <form action="<?= "index.php?action=modification&id=" . $post['id'] ?>" method="post">
         <input type="text" name="titre" value="<?= $post['titre']?>">
         <br />
@@ -17,5 +17,6 @@
         <br />
         <input type="submit" value="Envoyer" />
     </form>
+</article>
 
 <?php endforeach; ?>

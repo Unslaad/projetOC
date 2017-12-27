@@ -1,0 +1,38 @@
+#titreBlog{
+    font-size: 93px;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    font-family: georgia;
+}
+
+a{
+    text-decoration: none;
+    color : #003366;
+}
+
+#descBlog{
+    font-size: 25px;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    font-family: georgia;
+}
+
+body{
+    background-color: #f0ffff;
+}
+
+#contenu{
+    background-color: #87cefa;
+    width: 50%;
+    margin-left: 25%;
+    padding: 1px;
+    padding-left: 20px;
+}
+
+article{
+    background-color: #e0ffff;
+    margin: 20px;
+    padding: 20px;
+}

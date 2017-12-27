@@ -6,9 +6,8 @@
             <h1><?= $post['titre']?></h1>
         </a>
         <p><?= $post['date_fr']?></p>
-        <p><?= $post['texte']?></p>
+        <p><?= substr($post['texte'], 0, 50) ?></p>
     </article>
-    <br />
 <?php endforeach; ?>
 
 <?php

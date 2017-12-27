@@ -9,7 +9,7 @@
         <div id="global">
             <header>
                 <a href="index.php"><h1 id="titreBlog">Billet simple pour l'Alaska</h1></a>
-                <p>Je vous souhaite la bienvenue sur le blog de Jean Forteroche.</p>
+                <p id="descBlog">Bienvenue sur le blog de Jean Forteroche.</p>
             </header>
             <div id="contenu">
                 <?= $contenu ?>
