@@ -52,6 +52,9 @@
                     elseif($_GET['action'] == 'ajout'){
                         $this->controllerCrud->vueAjout();
                     }
+                    elseif ($_GET['action'] == 'suppPost') {
+                        $this->controllerCrud->suppPost($_GET['id']);
+                    }
 
                     elseif ($_GET['action'] == 'new') {
                         $titre = $this->getParam($_POST, 'titre');

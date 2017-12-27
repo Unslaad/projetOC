@@ -13,6 +13,9 @@
         </a>
         <p><?= $post['date_fr']?></p>
         <p><?= $post['texte']?></p>
+        <form action=<?='index.php?action=suppPost&id=' . $post['id']?> method="post">
+            <input type="submit" value="Supprimer"/>
+        </form>
     </article>
     <br />
 <?php endforeach; ?>

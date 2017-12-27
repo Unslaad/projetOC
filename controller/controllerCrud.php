@@ -20,4 +20,8 @@
             $this->crud->ajout($titre, $texte);
         }
 
+        public function suppPost($postId){
+            $this->crud->supprimer($postId);
+        }
+
     }
