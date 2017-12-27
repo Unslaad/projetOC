@@ -57,6 +57,8 @@
                     }
                     elseif ($_GET['action'] == 'suppPost'){
                         $this->controllerCrud->suppPost($_GET['id']);
+                        $this->controllerBack->back();
+                        echo '<script>alert("Billet supprimé");</script>';
                     }
                     elseif ($_GET['action'] == "modif"){
                         $this->controllerCrud->modifPost($_GET['id']);
@@ -65,12 +67,16 @@
                         $titre = $this->getParam($_POST, 'titre');
                         $texte = $this->getParam($_POST, 'texte');
                         $this->controllerCrud->modif($titre, $texte, $_GET['id']);
+                        $this->controllerBack->back();
+                        echo '<script>alert("Billet modifié");</script>';
                     }
 
                     elseif ($_GET['action'] == 'new') {
                         $titre = $this->getParam($_POST, 'titre');
                         $texte = $this->getParam($_POST, 'texte');
                         $this->controllerCrud->ajout($titre, $texte);
+                        $this->controllerBack->back();
+                        echo '<script>alert("Billet ajouté");</script>';
                     }
 
                     elseif ($_GET['action'] == 'auth') {
@@ -82,6 +88,7 @@
                         if ($bool){
                             $_SESSION['nom'] = 'admin';
                             $this->controllerBack->back();
+                            echo '<script>alert("Authentification réussi");</script>';
                         }
                         else
                             throw new Exception ("Erreur dans l'identifiant ou le mot de passe");
@@ -90,20 +97,21 @@
                     elseif ($_GET['action'] == 'unflag') {
                         $idComment = $_GET['id'];
                         $this->controllerBack->unFlag($idComment);
-                        echo 'Modification effectuée';
-
+                        $this->controllerBack->back();
+                        echo '<script>alert("Commentaire désignaler");</script>';
                     }
                     elseif ($_GET['action'] == 'flag') {
                         $idComment = $_GET['id'];
                         $this->controllerPost->flagComments($idComment);
-                        echo 'Modification effectuée';
+                        $this->controllerIndex->index();
+                        echo '<script>alert("Commentaire signalé");</script>';
 
                     }
                     elseif ($_GET['action'] == 'supp') {
                         $idComment = $_GET['id'];
                         $this->controllerBack->supp($idComment);
-                        echo 'Modification effectuée';
-
+                        $this->controllerBack->back();
+                        echo '<script>alert("Commentaire supprimé");</script>';
                     }
 
                 }
