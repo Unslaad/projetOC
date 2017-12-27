@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     require_once 'controller/controllerIndex.php';
     require_once 'controller/controllerPost.php';
@@ -45,8 +46,10 @@
                         $this->controllerPost->comment($pseudo,$comment,$postId);
                     }
                     elseif ($_GET['action'] == 'admin') {
-                        //require 'view/viewAuth.php';
-                        $this->controllerAuth->vueBack();
+                        if (isset($_SESSION['nom']) && $_SESSION['nom'] == 'admin')
+                            $this->controllerBack->back();
+                        else
+                            $this->controllerAuth->vueBack();
                     }
 
                     elseif($_GET['action'] == 'ajout'){
@@ -77,6 +80,7 @@
                         $hashMdp = hash('sha256' , $mdp);
                         $bool = $this->controllerAuth->checkMdp($user, $hashMdp);
                         if ($bool){
+                            $_SESSION['nom'] = 'admin';
                             $this->controllerBack->back();
                         }
                         else
