@@ -11,5 +11,5 @@
         <br />
         <textarea name="texte" value="texte"></textarea>
         <br />
-        <input type="submit" value="envoyer" />
+        <input type="submit" value="Envoyer" />
     </form>
