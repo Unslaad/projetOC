@@ -8,14 +8,11 @@
         integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous">
         </script>
         <script src="contenu/main.js"></script>
-        <script src="contenu/jquery.js"></script> 
+        <script src="contenu/jquery.js"></script>
         <link rel="stylesheet" href="contenu/style.css" />
         <title><?= $titre ?></title>
     </head>
     <body>
-        <div id="alerte">
-
-        </div>
         <nav>
 
         </nav>
@@ -41,6 +38,7 @@
                 <a href="index.php">Retour à l'index</a>
                 </div>
             </footer>
+            <br>
         </div>
     </body>
 </html>

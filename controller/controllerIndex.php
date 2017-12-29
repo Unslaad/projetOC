@@ -13,7 +13,19 @@
 
         public function index(){
             $post = $this->post->getPosts();
+            $menu = $this->post->getPosts();
             $view = new view("Index");
-            $view->generate(array('post' => $post));
+            $view->generate(array('post' => $post, 'menu' => $menu));
         }
+        /*
+            public function getTitleName(){
+            $post = $this->post->getPosts();
+            foreach ($post as $value) {
+                $arr = array(
+                    $value['id'] => $value['titre']
+                );
+            }
+            return $arr;
+        }
+        */
     }

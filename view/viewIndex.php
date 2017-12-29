@@ -1,5 +1,20 @@
 <?php $this->title = "Index"; ?>
 
+
+    <nav>
+        <table id="menu">
+            <tr>
+                <td>Titre</td>
+            </tr>
+            <?php foreach ($menu as $menu) : ?>
+                <tr>
+                    <td><?= '<a href="index.php?action=billet&id=' . $menu['id'] . '">' . $menu['titre'] . '</a>'?></td>
+                </tr>
+            <?php endforeach; ?>
+            </table>
+
+
+
 <?php foreach ($post as $post) : ?>
     <article>
         <a href="<?= "index.php?action=billet&id=" . $post['id'] ?>">
