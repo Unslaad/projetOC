@@ -1,8 +1,7 @@
 <?php $this->title = "Authentification"; ?>
 
-            <div id="contenu">
-                <h1>Authentification administration</h1>
-
+            <h1 class="auth">Authentification administration</h1>
+            <div class="auth">
                 <form method="post" action="index.php?action=auth">
                     <input id="pseudo" name="pseudo" type ="text" placeholder="Votre pseudo" required/><br />
                     <input id="mdp" name="mdp" type="password" placeholder="Mot de passe" required /><br />

@@ -11,6 +11,13 @@ a{
     color : #003366;
 }
 
+.auth{
+    width: 60% ;
+    margin-left: 20%;
+    text-align: center;
+
+}
+
 #descBlog{
     font-size: 25px;
     width: 50%;
