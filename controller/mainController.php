@@ -8,6 +8,7 @@
     require_once 'view/view.php';
     require_once 'controller/controllerCrud.php';
     require_once 'controller/controllerError.php';
+    require 'controller/controllerFlash.php';
 
 
     class main {
@@ -18,6 +19,7 @@
         private $controllerAuth;
         private $controllerCrud;
         private $controllerError;
+        private $controllerFlash;
 
 
         public function __construct(){
@@ -27,6 +29,7 @@
             $this->controllerAuth = new controllerAuth();
             $this->controllerCrud = new controllerCrud();
             $this->controllerError = new controllerError();
+            $this->controllerFlash = new controllerFlash();
 
         }
 
@@ -49,9 +52,10 @@
                             $pseudo = $this->getParam($_POST, 'pseudo');
                             $comment = $this->getParam($_POST, 'comment');
                             if (strlen($comment) > 250)
-                                throw new Exception("Commentaire trop long. (250 caractères max)");    
+                                throw new Exception("Commentaire trop long. (250 caractères max)");
                             $postId = $this->getParam($_POST, 'postId');
                             $this->controllerPost->comment($pseudo,$comment,$postId);
+                            $this->controllerFlash->flash();
                             break;
 
                         case 'admin':
@@ -62,8 +66,10 @@
                             break;
 
                         case 'ajout':
-                            if ($_SESSION['nom'] == 'admin')
+                            if ($_SESSION['nom'] == 'admin'){
                                 $this->controllerCrud->vueAjout();
+                                $this->controllerFlash->flash();
+                            }
                             else
                                 throw new Exception("Vous n'êtes pas autorisé à faire cette action.");
                             break;
@@ -72,6 +78,8 @@
                             if ($_SESSION['nom'] == 'admin'){
                                 $this->controllerCrud->suppPost($_GET['id']);
                                 $this->controllerBack->back();
+                                $this->controllerFlash->flash();
+
                             }
                             else {
                                 throw new Exception("Vous n'êtes pas autorisé à faire cette action.");
@@ -92,6 +100,8 @@
                                 $texte = $this->getParam($_POST, 'texte');
                                 $this->controllerCrud->modif($titre, $texte, $_GET['id']);
                                 $this->controllerBack->back();
+                                $this->controllerFlash->flash();
+
                             }
                             else {
                                 throw new Exception("Vous n'êtes pas autorisé à faire cette action.");
@@ -103,7 +113,7 @@
                             $texte = $this->getParam($_POST, 'texte');
                             $this->controllerCrud->ajout($titre, $texte);
                             $this->controllerBack->back();
-                            echo '<script>alert("Billet ajouté");</script>';
+                            $this->controllerFlash->flash();
                             break;
 
                         case 'auth':
@@ -114,7 +124,7 @@
                             if ($bool){
                                 $_SESSION['nom'] = 'admin';
                                 $this->controllerBack->back();
-                                echo '<script>alert("Authentification réussi");</script>';
+                                $this->controllerFlash->flash();
                             }
                             else
                                 throw new Exception ("Erreur dans l'identifiant ou le mot de passe");
@@ -124,7 +134,9 @@
                             if ($_SESSION['nom'] == 'admin'){
                                 $idComment = $_GET['id'];
                                 $this->controllerBack->unFlag($idComment);
-                                $this->controllerBack->back();
+                                $this->controllerBack->backCo();
+                                $this->controllerFlash->flash();
+
                             }
                             else
                                 throw new Exception("Vous n'êtes pas autorisé à faire cette action.");
@@ -134,14 +146,17 @@
                             $idComment = $_GET['id'];
                             $this->controllerPost->flagComments($idComment);
                             $this->controllerIndex->index();
-                            echo '<script>alert("Commentaire signalé");</script>';
+                            $this->controllerFlash->flash();
+
                             break;
 
                         case 'supp':
                             if ($_SESSION['nom'] == 'admin'){
                                 $idComment = $_GET['id'];
                                 $this->controllerBack->supp($idComment);
-                                $this->controllerBack->back();
+                                $this->controllerBack->backCo();
+                                $this->controllerFlash->flash();
+
                             }
                             else {
                                 throw new Exception("Vous n'êtes pas autorisé à faire cette action.");
@@ -151,6 +166,13 @@
                         case 'deco':
                             session_destroy();
                             $this->controllerIndex->index();
+                            break;
+
+                        case 'backCo':
+                            if (isset($_SESSION['nom']) && $_SESSION['nom'] == 'admin')
+                                $this->controllerBack->backCo();
+                            else
+                                $this->controllerAuth->vueBack();
                             break;
 
                         default:
@@ -184,3 +206,5 @@
         }
 
 }
+
+?>

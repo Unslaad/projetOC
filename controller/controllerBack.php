@@ -16,9 +16,14 @@
 
         public function back(){
             $post = $this->post->getPosts();
-            $comments = $this->back->getFlagComments();
             $view = new view("Back");
-            $view->generate(array('post' => $post, 'comments' => $comments));
+            $view->generate(array('post' => $post));
+
+        }
+        public function backCo(){
+            $comments = $this->back->getFlagComments();
+            $view= new view("Back2");
+            $view->generate(array('comments' => $comments));
 
         }
 
